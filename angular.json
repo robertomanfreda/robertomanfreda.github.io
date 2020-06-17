@@ -117,8 +117,13 @@
               "devServerTarget": "robertomanfreda-github-io:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "robertomanfreda-github-io"
 }
