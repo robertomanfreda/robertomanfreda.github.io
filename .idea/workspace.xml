@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92e09be8-1563-4ebf-9f0a-30163ce2a60c" name="Default Changelist" comment="[ADD] - Angular">
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/browserslist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/protractor.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/src/app.e2e-spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/src/app.po.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tslint.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1dRli5h1JNMNuLX3yIvNuMR560F" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (robertomanfreda-github-io)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (robertomanfreda-github-io)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92e09be8-1563-4ebf-9f0a-30163ce2a60c" name="Default Changelist" comment="" />
+      <created>1592395910765</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592395910765</updated>
+      <workItem from="1592395915582" duration="9484000" />
+    </task>
+    <task id="LOCAL-00001" summary="[ADD] - Angular">
+      <created>1592405731838</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592405731838</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[ADD] - Angular" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ADD] - Angular" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1257" height="93" key="GridCell.Tab.0.bottom" timestamp="1592405562961">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state width="1257" height="93" key="GridCell.Tab.0.bottom/0.30.1280.770@0.30.1280.770" timestamp="1592405562961" />
+    <state width="1257" height="93" key="GridCell.Tab.0.center" timestamp="1592405562960">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state width="1257" height="93" key="GridCell.Tab.0.center/0.30.1280.770@0.30.1280.770" timestamp="1592405562960" />
+    <state width="1257" height="93" key="GridCell.Tab.0.left" timestamp="1592405562959">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state width="1257" height="93" key="GridCell.Tab.0.left/0.30.1280.770@0.30.1280.770" timestamp="1592405562959" />
+    <state width="1257" height="93" key="GridCell.Tab.0.right" timestamp="1592405562961">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state width="1257" height="93" key="GridCell.Tab.0.right/0.30.1280.770@0.30.1280.770" timestamp="1592405562961" />
+    <state x="435" y="133" width="406" height="578" key="RollbackChangesDialog" timestamp="1592403065271">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state x="435" y="133" width="406" height="578" key="RollbackChangesDialog/0.30.1280.770@0.30.1280.770" timestamp="1592403065271" />
+    <state x="238" y="142" width="800" height="560" key="Vcs.Push.Dialog.v2" timestamp="1592405734564">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state x="238" y="142" width="800" height="560" key="Vcs.Push.Dialog.v2/0.30.1280.770@0.30.1280.770" timestamp="1592405734564" />
+    <state x="257" y="101" width="762" height="642" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1592396571602">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state x="257" y="101" width="762" height="642" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.30.1280.770@0.30.1280.770" timestamp="1592396571602" />
+    <state x="447" y="332" width="381" height="181" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1592405524811">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state x="447" y="332" width="381" height="181" key="git4idea.remote.GitConfigureRemotesDialog/0.30.1280.770@0.30.1280.770" timestamp="1592405524811" />
+    <state x="303" y="121" width="672" height="678" key="search.everywhere.popup" timestamp="1592404983398">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state x="303" y="121" width="672" height="678" key="search.everywhere.popup/0.30.1280.770@0.30.1280.770" timestamp="1592404983398" />
+  </component>
+</project>
