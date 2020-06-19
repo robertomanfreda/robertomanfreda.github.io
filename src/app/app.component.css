@@ -133,6 +133,10 @@ svg.material-icons:not(:last-child) {
   fill: rgb(105, 103, 103);
 }
 
+.desc-icon {
+  padding-right: 5px;
+}
+
 a,
 a:visited,
 a:hover {
@@ -145,15 +149,21 @@ a:hover {
 }
 
 footer {
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   line-height: 20px;
+  text-align: center;
+  padding: 15px;
+  color: #FFFFFF;
+  background-color: #000000;
 }
 
 footer a {
   display: flex;
   align-items: center;
+  bottom: 0 ;
 }
 
 svg#clouds {
