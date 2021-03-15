@@ -572,6 +572,7 @@ a:hover {
   line-height: 24px;
   font-size: 14px;
   margin: 0 0 0 68px;
+  word-wrap: break-word;
 }
 
 .contact .info-box .social-links {
