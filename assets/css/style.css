@@ -19,7 +19,7 @@ body::before {
   left: 0;
   right: 0;
   top: 0;
-  height: 100vh;
+  height: 100%;
   z-index: -1;
 }
 
@@ -405,7 +405,7 @@ a:hover {
 
 @media (max-width: 768px) {
   .logo{
-    width: 260px;
+    width: 250px;
   }
 }
 
