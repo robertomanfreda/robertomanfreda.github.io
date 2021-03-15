@@ -221,7 +221,6 @@ a:hover {
 .navbar-b.navbar-trans .nav-item, .navbar-b.navbar-reduce .nav-item {
   position: relative;
   padding-right: 10px;
-  padding-left: 0;
 }
 
 @media (min-width: 768px) {
@@ -290,13 +289,13 @@ a:hover {
 .navbar-b.navbar-reduce {
   transition: all .5s ease-in-out;
   background-color: rgba(0, 0, 0, 0.9);
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 .navbar-b.navbar-reduce .nav-link {
   color: #fff;
-  margin-top: 15px;
+  margin-top: 0px;
 }
 
 .navbar-b.navbar-reduce .nav-link:before {
@@ -402,6 +401,12 @@ a:hover {
   top: 10px;
   transform: rotate(-135deg);
   opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .logo{
+    width: 260px;
+  }
 }
 
 

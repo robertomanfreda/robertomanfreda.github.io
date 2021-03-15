@@ -1,9 +1,7 @@
 /**
- * Template Name: DevFolio - v2.4.1
- * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
+* Template Name: Roberto Mafreda - Portfolio
+*/
+
 (function ($) {
     "use strict";
 
