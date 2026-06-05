@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Respawn | Local OpenAI Responses API Gateway</title>
+    <meta
+      name="description"
+      content="Respawn is a local OpenAI Responses API compatible gateway for self-hosted LLMs, with stateful responses, streaming, tools, structured outputs, observability, and Docker Compose support."
+    >
+    <meta name="author" content="Roberto Manfreda">
+    <meta name="theme-color" content="#08090d">
+    <meta property="og:title" content="Respawn">
+    <meta
+      property="og:description"
+      content="A local OpenAI Responses API compatible gateway for self-hosted LLMs."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://robertomanfreda.github.io/respawn.html">
+    <meta property="og:image" content="https://robertomanfreda.github.io/assets/project-respawn.png">
+    <link rel="canonical" href="https://robertomanfreda.github.io/respawn.html">
+    <link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon-32.png?v=3" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon.ico?v=3" sizes="any">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
+    <link rel="manifest" href="site.webmanifest?v=3">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="project-page">
+    <header class="site-header is-scrolled">
+      <a class="brand" href="index.html" aria-label="Roberto Manfreda home">
+        <img class="brand-mark" src="assets/favicon.svg" alt="" aria-hidden="true">
+        <span>Roberto Manfreda</span>
+      </a>
+      <nav class="site-nav" aria-label="Project navigation">
+        <a class="nav-link" href="index.html#profile">Profile</a>
+        <a class="nav-link" href="index.html#experience">Experience</a>
+        <a class="nav-link" href="respawn.html">Respawn</a>
+        <div class="social-links" role="group" aria-label="Social links">
+          <a class="social-link" href="https://github.com/robertomanfreda" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.41 7.86 10.94.58.1.79-.25.79-.56v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18A10.9 10.9 0 0 1 12 6.06c.98 0 1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.08 0 4.42-2.69 5.39-5.25 5.67.42.36.78 1.07.78 2.16v3.16c0 .31.21.67.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+            </svg>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/roberto-manfreda/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/>
+            </svg>
+          </a>
+          <a class="social-link" href="https://stackoverflow.com/users/9935369/roberto-manfreda" target="_blank" rel="noreferrer" aria-label="Stack Overflow profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.9 20.2v-5.3h1.7V22H4.4v-7.1h1.7v5.3h11.8Z"/>
+              <path d="m7.7 14.4 8.6 1.8.4-1.7L8 12.7l-.3 1.7Zm1.1-4.1 8 3.7.7-1.6-8-3.7-.7 1.6Zm2.2-3.9 6.8 5.5 1.1-1.3-6.8-5.5-1.1 1.3Zm4.4-4.2L14 3.3l5.2 6.8 1.4-1.1-5.2-6.8ZM7.6 18.1h8.8v-1.7H7.6v1.7Z"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="respawn-hero" aria-labelledby="respawn-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="respawn-hero-copy">
+          <p class="eyebrow">Spotlight project</p>
+          <div class="respawn-title-lockup">
+            <img class="respawn-hero-mark" src="assets/respawn-mark.svg" alt="" aria-hidden="true">
+            <h1 id="respawn-title">Respawn</h1>
+          </div>
+          <p>
+            A local, OpenAI Responses API compatible gateway for self-hosted LLMs.
+            It gives OpenAI SDKs a familiar <code>/v1</code> API while keeping model serving
+            inside your own stack.
+          </p>
+          <div class="hero-actions" role="group" aria-label="Respawn actions">
+            <a class="button primary" href="https://github.com/robertomanfreda/respawn" target="_blank" rel="noreferrer">
+              <i data-lucide="github" aria-hidden="true"></i>
+              Open on GitHub
+            </a>
+            <a class="button secondary" href="#quick-start">
+              <i data-lucide="terminal" aria-hidden="true"></i>
+              Quick start
+            </a>
+          </div>
+        </div>
+        <aside class="respawn-panel" aria-label="Respawn summary">
+          <div class="terminal-shell">
+            <div class="terminal-top">
+              <span></span>
+              <span></span>
+              <span></span>
+              <code>respawn gateway</code>
+            </div>
+            <div class="terminal-stream">
+              <span><b>api</b> /v1/responses</span>
+              <span><b>state</b> previous_response_id</span>
+              <span><b>stream</b> SSE events</span>
+              <span><b>tools</b> local registry</span>
+              <span><b>metrics</b> Prometheus + Grafana</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section detail-section" aria-labelledby="what-title">
+        <div class="section-heading">
+          <p class="eyebrow">What it is</p>
+          <h2 id="what-title">A compatibility layer for local LLM stacks</h2>
+          <p>
+            Respawn stores response state, reconstructs conversation history from
+            <code>previous_response_id</code>, normalizes streaming events, and forwards generation
+            to an OpenAI-compatible Ollama endpoint.
+          </p>
+        </div>
+        <div class="feature-matrix">
+          <article>
+            <h3>Gateway, not runtime</h3>
+            <p>
+              Respawn intentionally does not implement GPU inference, tokenizers, batching,
+              KV cache management, quantization, or model loading. Those jobs stay in Ollama
+              and the model runtime below it.
+            </p>
+          </article>
+          <article>
+            <h3>OpenAI-shaped behavior</h3>
+            <p>
+              The gateway exposes familiar object shapes, IDs, errors, Responses flows,
+              Chat Completions compatibility, and SDK-oriented contract coverage.
+            </p>
+          </article>
+          <article>
+            <h3>Local-first operations</h3>
+            <p>
+              Postgres or SQLite persistence, API-key auth, tenant-scoped stored responses,
+              structured logs, metrics, and a full Docker Compose stack.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section detail-section alt" aria-labelledby="highlights-title">
+        <div class="section-heading">
+          <p class="eyebrow">Highlights</p>
+          <h2 id="highlights-title">Responses API surface, state, tools, observability</h2>
+        </div>
+        <div class="api-grid">
+          <article>
+            <i data-lucide="route" aria-hidden="true"></i>
+            <h3>Responses API</h3>
+            <p><code>POST /v1/responses</code> with create, stream, retrieve, input-items, token counting, and delete support.</p>
+          </article>
+          <article>
+            <i data-lucide="message-square-code" aria-hidden="true"></i>
+            <h3>Chat compatibility</h3>
+            <p><code>POST /v1/chat/completions</code> passthrough-style compatibility for OpenAI-shaped clients.</p>
+          </article>
+          <article>
+            <i data-lucide="database" aria-hidden="true"></i>
+            <h3>Stored state</h3>
+            <p>Postgres persistence, soft deletes, chain-depth limits, and tenant-scoped response history.</p>
+          </article>
+          <article>
+            <i data-lucide="radio" aria-hidden="true"></i>
+            <h3>SSE streaming</h3>
+            <p>Streaming events are normalized into Responses-style event payloads for SDK-friendly consumption.</p>
+          </article>
+          <article>
+            <i data-lucide="wrench" aria-hidden="true"></i>
+            <h3>Function tools</h3>
+            <p>Tool calling with a small built-in local registry: <code>echo</code>, <code>get_current_time</code>, and <code>calculator</code>.</p>
+          </article>
+          <article>
+            <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
+            <h3>Observability</h3>
+            <p>Structured JSON logs, Prometheus-compatible metrics, VictoriaMetrics, and a provisioned Grafana dashboard.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="quick-start" class="section detail-section" aria-labelledby="quick-title">
+        <div class="section-heading">
+          <p class="eyebrow">Quick start</p>
+          <h2 id="quick-title">Run locally with Ollama and the OpenAI SDK</h2>
+        </div>
+        <div class="code-layout">
+          <div class="code-panel">
+            <div class="code-title">Gateway</div>
+            <pre><code>ollama serve
+ollama pull gpt-oss:120b
+
+cd apps/gateway
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -e ".[test]"
+uvicorn src.main:app --host 0.0.0.0 --port 8080</code></pre>
+          </div>
+          <div class="code-panel">
+            <div class="code-title">OpenAI Python SDK</div>
+            <pre><code>from openai import OpenAI
+
+client = OpenAI(
+    base_url="http://localhost:8080/v1",
+    api_key="local-dev-key",
+)
+
+response = client.responses.create(
+    model="gpt-oss:120b",
+    input="Explain Kubernetes in one sentence.",
+)
+
+print(response.output_text)</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section detail-section alt" aria-labelledby="docker-title">
+        <div class="section-heading">
+          <p class="eyebrow">Docker stack</p>
+          <h2 id="docker-title">Gateway, model server, persistence, metrics, dashboard</h2>
+          <p>
+            The Compose stack starts Respawn, Postgres, Ollama, an Ollama preload job,
+            VictoriaMetrics, and Grafana.
+          </p>
+        </div>
+        <div class="code-layout compact">
+          <div class="code-panel">
+            <div class="code-title">Compose workflow</div>
+            <pre><code>cd infra/docker
+make env
+make up-build
+
+make health
+make ready
+curl -s http://localhost:8080/v1/models
+make metrics</code></pre>
+          </div>
+          <div class="feature-matrix slim">
+            <article>
+              <h3>Grafana</h3>
+              <p>Runs locally at <code>http://localhost:3000</code> with the default login <code>admin / respawn</code>.</p>
+            </article>
+            <article>
+              <h3>Benchmark</h3>
+              <p><code>make benchmark</code> exercises Responses, Chat Completions, tools, streaming, persistence, structured output, reasoning, health, and metrics.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section detail-section" aria-labelledby="deep-title">
+        <div class="section-heading">
+          <p class="eyebrow">Internals</p>
+          <h2 id="deep-title">How the gateway adds behavior on top of Ollama</h2>
+        </div>
+        <div class="feature-matrix">
+          <article>
+            <h3>Stateful Responses</h3>
+            <p>
+              When a request includes <code>previous_response_id</code>, Respawn loads the stored chain,
+              enforces <code>MAX_CHAIN_DEPTH</code>, rejects missing or cross-tenant parents, rebuilds
+              the full chat history, appends the new input, and stores the new response when requested.
+            </p>
+          </article>
+          <article>
+            <h3>Structured Outputs</h3>
+            <p>
+              JSON Schema output is accepted through <code>response_format</code> or SDK-style
+              <code>text.format</code>. Respawn validates the final text, retries once with a repair
+              instruction, and returns an OpenAI-shaped validation error if repair fails.
+            </p>
+          </article>
+          <article>
+            <h3>Prompt Cache and Reasoning</h3>
+            <p>
+              Prompt-cache accounting reports local prefix-cache hits through Responses usage fields.
+              Reasoning requests map <code>reasoning.effort</code> to Ollama <code>think</code> and
+              track reasoning tokens when the backend returns thinking metadata.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section detail-section alt" aria-labelledby="api-title">
+        <div class="section-heading">
+          <p class="eyebrow">API surface</p>
+          <h2 id="api-title">Practical endpoints exposed by Respawn</h2>
+        </div>
+        <div class="endpoint-list">
+          <code>POST /v1/responses</code>
+          <code>GET /v1/responses/{response_id}</code>
+          <code>GET /v1/responses/{response_id}/input_items</code>
+          <code>POST /v1/responses/input_tokens</code>
+          <code>DELETE /v1/responses/{response_id}</code>
+          <code>POST /v1/chat/completions</code>
+          <code>GET /v1/models</code>
+          <code>GET /models</code>
+          <code>GET /healthz</code>
+          <code>GET /readyz</code>
+          <code>GET /metrics</code>
+        </div>
+      </section>
+
+      <section class="section detail-section" aria-labelledby="limits-title">
+        <div class="section-heading">
+          <p class="eyebrow">Limits</p>
+          <h2 id="limits-title">Clear boundaries by design</h2>
+        </div>
+        <ul class="limitation-list">
+          <li>Respawn is a local compatibility gateway, not the hosted OpenAI service.</li>
+          <li>It does not reproduce hosted OpenAI tools unless local equivalents are added.</li>
+          <li>It does not implement GPU inference or model serving.</li>
+          <li>Model quality and tool-calling quality depend on the local model.</li>
+          <li>Streaming and SDK parity may need updates as SDKs evolve.</li>
+        </ul>
+      </section>
+
+      <section class="section contact-section" aria-labelledby="respawn-contact-title">
+        <div>
+          <p class="eyebrow">Repository</p>
+          <h2 id="respawn-contact-title">Read the code, run the gateway.</h2>
+          <p>
+            The project is public on GitHub with the gateway app, Docker stack,
+            observability setup, tests, compatibility notes, and future work.
+          </p>
+        </div>
+        <a class="button primary" href="https://github.com/robertomanfreda/respawn" target="_blank" rel="noreferrer">
+          <i data-lucide="github" aria-hidden="true"></i>
+          Open repository
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year">2026</span> Roberto Manfreda</span>
+      <a href="index.html">
+        <i data-lucide="arrow-left" aria-hidden="true"></i>
+        Back home
+      </a>
+    </footer>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "Respawn",
+        "description": "A local OpenAI Responses API compatible gateway for self-hosted LLMs.",
+        "codeRepository": "https://github.com/robertomanfreda/respawn",
+        "programmingLanguage": ["Python", "Docker"],
+        "author": {
+          "@type": "Person",
+          "name": "Roberto Manfreda",
+          "url": "https://robertomanfreda.github.io/"
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
