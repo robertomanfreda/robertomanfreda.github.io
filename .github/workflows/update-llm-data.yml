@@ -1,0 +1,33 @@
+name: Update LLM checker data
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Update catalog
+        run: python scripts/update-llm-data.py
+
+      - name: Validate catalog
+        run: python scripts/update-llm-data.py --check --no-hub
+
+      - name: Commit changed data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update LLM checker data"
+          file_pattern: public/data/llm-models.json

@@ -1,6 +1,7 @@
 {
   "name": "Roberto Manfreda",
   "short_name": "RM",
+  "start_url": "/",
   "icons": [
     {
       "src": "assets/favicon-192.png",
@@ -13,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#08090d",
-  "background_color": "#08090d",
+  "theme_color": "#0d0f12",
+  "background_color": "#0d0f12",
   "display": "standalone"
 }

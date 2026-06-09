@@ -1,0 +1,256 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-09",
+  "presets": [
+    {
+      "id": "custom",
+      "label": "Custom hardware",
+      "vendor": "Custom",
+      "kind": "discrete",
+      "vramGb": 12,
+      "ramGb": 32,
+      "bandwidthGbps": 500,
+      "aliases": []
+    },
+    {
+      "id": "rtx-5050-8gb",
+      "label": "NVIDIA GeForce RTX 5050 8GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 8,
+      "ramGb": 32,
+      "bandwidthGbps": 320,
+      "aliases": ["5050", "rtx 5050", "geforce rtx 5050"]
+    },
+    {
+      "id": "rtx-5060-8gb",
+      "label": "NVIDIA GeForce RTX 5060 8GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 8,
+      "ramGb": 32,
+      "bandwidthGbps": 448,
+      "aliases": ["5060", "rtx 5060", "geforce rtx 5060"]
+    },
+    {
+      "id": "rtx-5060-ti-8gb",
+      "label": "NVIDIA GeForce RTX 5060 Ti 8GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 8,
+      "ramGb": 32,
+      "bandwidthGbps": 448,
+      "aliases": ["5060 ti 8gb", "rtx 5060 ti 8gb", "geforce rtx 5060 ti 8gb"]
+    },
+    {
+      "id": "rtx-5060-ti-16gb",
+      "label": "NVIDIA GeForce RTX 5060 Ti 16GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 16,
+      "ramGb": 32,
+      "bandwidthGbps": 448,
+      "aliases": ["5060 ti", "5060 ti 16gb", "rtx 5060 ti", "geforce rtx 5060 ti"]
+    },
+    {
+      "id": "rtx-5070-12gb",
+      "label": "NVIDIA GeForce RTX 5070 12GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 12,
+      "ramGb": 32,
+      "bandwidthGbps": 672,
+      "aliases": ["5070", "rtx 5070", "geforce rtx 5070"]
+    },
+    {
+      "id": "rtx-5070-ti-16gb",
+      "label": "NVIDIA GeForce RTX 5070 Ti 16GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 16,
+      "ramGb": 64,
+      "bandwidthGbps": 896,
+      "aliases": ["5070 ti", "rtx 5070 ti", "geforce rtx 5070 ti"]
+    },
+    {
+      "id": "rtx-5080-16gb",
+      "label": "NVIDIA GeForce RTX 5080 16GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 16,
+      "ramGb": 64,
+      "bandwidthGbps": 960,
+      "aliases": ["5080", "rtx 5080", "geforce rtx 5080"]
+    },
+    {
+      "id": "rtx-5090-32gb",
+      "label": "NVIDIA GeForce RTX 5090 32GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 32,
+      "ramGb": 64,
+      "bandwidthGbps": 1792,
+      "aliases": ["5090", "rtx 5090", "geforce rtx 5090"]
+    },
+    {
+      "id": "rtx-4060-8gb",
+      "label": "NVIDIA GeForce RTX 4060 8GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 8,
+      "ramGb": 32,
+      "bandwidthGbps": 272,
+      "aliases": ["rtx 4060", "geforce rtx 4060"]
+    },
+    {
+      "id": "rtx-4060-ti-16gb",
+      "label": "NVIDIA GeForce RTX 4060 Ti 16GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 16,
+      "ramGb": 32,
+      "bandwidthGbps": 288,
+      "aliases": ["rtx 4060 ti", "geforce rtx 4060 ti"]
+    },
+    {
+      "id": "rtx-4070-12gb",
+      "label": "NVIDIA GeForce RTX 4070 12GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 12,
+      "ramGb": 32,
+      "bandwidthGbps": 504,
+      "aliases": ["rtx 4070", "geforce rtx 4070"]
+    },
+    {
+      "id": "rtx-4070-ti-super-16gb",
+      "label": "NVIDIA GeForce RTX 4070 Ti SUPER 16GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 16,
+      "ramGb": 32,
+      "bandwidthGbps": 672,
+      "aliases": ["rtx 4070 ti super", "geforce rtx 4070 ti super"]
+    },
+    {
+      "id": "rtx-4080-super-16gb",
+      "label": "NVIDIA GeForce RTX 4080 SUPER 16GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 16,
+      "ramGb": 64,
+      "bandwidthGbps": 736,
+      "aliases": ["rtx 4080 super", "geforce rtx 4080 super"]
+    },
+    {
+      "id": "rtx-4090-24gb",
+      "label": "NVIDIA GeForce RTX 4090 24GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 24,
+      "ramGb": 64,
+      "bandwidthGbps": 1008,
+      "aliases": ["rtx 4090", "geforce rtx 4090"]
+    },
+    {
+      "id": "rtx-3090-24gb",
+      "label": "NVIDIA GeForce RTX 3090 24GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 24,
+      "ramGb": 64,
+      "bandwidthGbps": 936,
+      "aliases": ["rtx 3090", "geforce rtx 3090"]
+    },
+    {
+      "id": "rtx-a6000-48gb",
+      "label": "NVIDIA RTX A6000 48GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 48,
+      "ramGb": 128,
+      "bandwidthGbps": 768,
+      "aliases": ["rtx a6000", "nvidia rtx a6000"]
+    },
+    {
+      "id": "rtx-pro-6000-blackwell-96gb",
+      "label": "NVIDIA RTX PRO 6000 Blackwell 96GB",
+      "vendor": "NVIDIA",
+      "kind": "discrete",
+      "vramGb": 96,
+      "ramGb": 192,
+      "bandwidthGbps": 1792,
+      "aliases": ["rtx pro 6000", "rtx pro 6000 blackwell", "nvidia rtx pro 6000"]
+    },
+    {
+      "id": "dgx-spark-128gb",
+      "label": "NVIDIA DGX Spark 128GB unified memory",
+      "vendor": "NVIDIA",
+      "kind": "unified",
+      "vramGb": 128,
+      "ramGb": 128,
+      "bandwidthGbps": 273,
+      "aliases": ["dgx spark", "nvidia dgx spark", "gdx spark", "nvidia gdx spark"]
+    },
+    {
+      "id": "dgx-station-gb300-748gb",
+      "label": "NVIDIA DGX Station GB300 748GB coherent memory",
+      "vendor": "NVIDIA",
+      "kind": "unified",
+      "vramGb": 748,
+      "ramGb": 748,
+      "bandwidthGbps": 396,
+      "aliases": ["dgx station", "dgx station gb300", "nvidia dgx station", "gdx station", "nvidia gdx"]
+    },
+    {
+      "id": "amd-rx-7900-xtx",
+      "label": "AMD Radeon RX 7900 XTX 24GB",
+      "vendor": "AMD",
+      "kind": "discrete",
+      "vramGb": 24,
+      "ramGb": 64,
+      "bandwidthGbps": 960,
+      "aliases": ["rx 7900 xtx", "radeon rx 7900 xtx"]
+    },
+    {
+      "id": "apple-m2-16gb",
+      "label": "Apple Silicon 16GB unified memory",
+      "vendor": "Apple",
+      "kind": "unified",
+      "vramGb": 16,
+      "ramGb": 16,
+      "bandwidthGbps": 200,
+      "aliases": ["apple m2", "apple gpu", "apple silicon"]
+    },
+    {
+      "id": "apple-m3-pro-36gb",
+      "label": "Apple Silicon 36GB unified memory",
+      "vendor": "Apple",
+      "kind": "unified",
+      "vramGb": 36,
+      "ramGb": 36,
+      "bandwidthGbps": 300,
+      "aliases": ["apple m3 pro", "apple m4 pro"]
+    },
+    {
+      "id": "apple-m3-max-64gb",
+      "label": "Apple Silicon 64GB unified memory",
+      "vendor": "Apple",
+      "kind": "unified",
+      "vramGb": 64,
+      "ramGb": 64,
+      "bandwidthGbps": 400,
+      "aliases": ["apple m3 max", "apple m4 max"]
+    },
+    {
+      "id": "cpu-32gb",
+      "label": "CPU only / 32GB RAM",
+      "vendor": "CPU",
+      "kind": "unified",
+      "vramGb": 0,
+      "ramGb": 32,
+      "bandwidthGbps": 80,
+      "aliases": ["cpu", "software renderer"]
+    }
+  ]
+}
