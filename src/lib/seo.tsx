@@ -9,21 +9,21 @@ const routeSeo: Record<RouteId, { title: string; description: string; path: stri
     description:
       "Personal website of Roberto Manfreda, DevOps Engineer at Aruba with experience in software architecture, cloud-native platforms, performance, and AI projects.",
     path: "/",
-    image: "/assets/roberto-manfreda.png"
+    image: "/assets/robertomanfreda.png"
   },
   respawn: {
     title: "Respawn | Local OpenAI Responses API Gateway",
     description:
       "Respawn is a local OpenAI-shaped API gateway for self-hosted LLM backends, with stateful Responses, streaming, local tools, Files API support, observability, and compatibility gates.",
     path: "/respawn/",
-    image: "/assets/project-respawn.png"
+    image: "/assets/respawn.png"
   },
   "llm-checker": {
     title: "LLM Model Checker | What LLM Can I Run?",
     description:
       "Check which local LLMs can run on your GPU, VRAM, RAM, memory bandwidth, or unified memory system. Static, private, and built for Ollama and GGUF-style local inference.",
     path: "/llm-model-checker/",
-    image: "/assets/roberto-manfreda.png"
+    image: "/assets/llm-checker.png"
   }
 };
 

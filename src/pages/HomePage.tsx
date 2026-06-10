@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   Activity,
   Boxes,
@@ -12,7 +11,7 @@ import {
   ShieldCheck,
   Workflow
 } from "lucide-react";
-import { ButtonLink, IconCard, SectionHeading, TagList, TerminalPanel, TextLink } from "../components/ui";
+import { ButtonLink, IconCard, SectionHeading, TagList, TextLink } from "../components/ui";
 import { JsonLd, SITE_URL } from "../lib/seo";
 
 const profileCards = [
@@ -70,23 +69,6 @@ const techCards = [
 ];
 
 export function HomePage() {
-  const [githubSignal, setGithubSignal] = useState("Public GitHub profile");
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    fetch("https://api.github.com/users/robertomanfreda", { signal: controller.signal })
-      .then((response) => (response.ok ? response.json() : null))
-      .then((profile: { followers?: number; location?: string } | null) => {
-        if (!profile) return;
-        const followers = typeof profile.followers === "number" ? `${profile.followers} GitHub followers` : "Public GitHub profile";
-        setGithubSignal(followers);
-      })
-      .catch(() => undefined);
-
-    return () => controller.abort();
-  }, []);
-
   return (
     <main id="top">
       <section className="hero home-hero" aria-labelledby="hero-title">
@@ -109,25 +91,6 @@ export function HomePage() {
             </ButtonLink>
           </div>
         </div>
-
-        <aside className="hero-panel" aria-label="Profile summary">
-          <img className="portrait" src="/assets/roberto-manfreda.png" alt="Roberto Manfreda" />
-          <ul className="signal-list">
-            <li>DevOps Engineer at Aruba</li>
-            <li>Italy</li>
-            <li>{githubSignal}</li>
-            <li>Respawn spotlight</li>
-          </ul>
-          <TerminalPanel
-            title="~/ops/roberto"
-            lines={[
-              ["$", "deploy --measure --learn"],
-              ["latency", "p95: 42ms"],
-              ["trace", "api.gateway.ready"],
-              ["model", "local.responses.online"]
-            ]}
-          />
-        </aside>
       </section>
 
       <section id="profile" className="section" aria-labelledby="profile-title">
@@ -191,45 +154,40 @@ export function HomePage() {
         </SectionHeading>
 
         <div className="project-grid">
-          <article className="card project-card featured-project">
-            <a className="project-media" href="/respawn/" aria-label="Open the Respawn project page">
-              <img src="/assets/respawn.png" alt="" aria-hidden="true" />
-            </a>
-            <div>
+          <article className="card project-card">
+            <div className="project-card-head">
+              <a className="project-icon-link" href="/respawn/" aria-label="Open the Respawn project page">
+                <img src="/assets/respawn.png" alt="" aria-hidden="true" />
+              </a>
               <div className="card-kicker">
-                <span>AI gateway</span>
+                <span>Respawn</span>
                 <span>2026</span>
               </div>
-              <h3>Respawn</h3>
-              <p>
-                Local gateway compatible with the OpenAI Responses API for self-hosted LLMs: conversational state, SSE
-                streaming, tool calls, structured outputs, Prometheus metrics, and a Docker Compose stack.
-              </p>
-              <TagList items={["OpenAI API", "FastAPI", "Postgres", "Ollama"]} />
-              <TextLink href="/respawn/">Read project page</TextLink>
             </div>
+            <p>
+              Local gateway compatible with the OpenAI Responses API for self-hosted LLMs: conversational state, SSE
+              streaming, tool calls, structured outputs, Prometheus metrics, and a Docker Compose stack.
+            </p>
+            <TagList items={["OpenAI API", "FastAPI", "Postgres", "Ollama"]} />
+            <TextLink href="/respawn/">Read project page</TextLink>
           </article>
 
           <article className="card project-card">
-            <a className="checker-mini" href="/llm-model-checker/" aria-label="Open the LLM Model Checker">
-              <span>VRAM</span>
-              <strong>12 GB</strong>
-              <span>Q4 fit</span>
-              <strong>Good</strong>
-            </a>
-            <div>
+            <div className="project-card-head">
+              <a className="project-icon-link" href="/llm-model-checker/" aria-label="Open the LLM Model Checker">
+                <img src="/assets/llm-checker.png" alt="" aria-hidden="true" />
+              </a>
               <div className="card-kicker">
-                <span>Local AI tool</span>
+                <span>LLM Model Checker</span>
                 <span>2026</span>
               </div>
-              <h3>LLM Model Checker</h3>
-              <p>
-                Estimate which Ollama and GGUF-style local models fit a GPU, unified memory system, or CPU-only setup with
-                Q4 footprint and speed estimates.
-              </p>
-              <TagList items={["Ollama", "GGUF", "VRAM", "Hugging Face"]} />
-              <TextLink href="/llm-model-checker/">Open checker</TextLink>
             </div>
+            <p>
+              Estimate which Ollama and GGUF-style local models fit a GPU, unified memory system, or CPU-only setup with Q4
+              footprint and speed estimates.
+            </p>
+            <TagList items={["Ollama", "GGUF", "VRAM", "Hugging Face"]} />
+            <TextLink href="/llm-model-checker/">Open checker</TextLink>
           </article>
         </div>
       </section>
@@ -266,7 +224,7 @@ export function HomePage() {
           "@type": "Person",
           name: "Roberto Manfreda",
           url: SITE_URL,
-          image: `${SITE_URL}/assets/roberto-manfreda.png`,
+          image: `${SITE_URL}/assets/robertomanfreda.png`,
           sameAs: [
             "https://github.com/robertomanfreda",
             "https://www.linkedin.com/in/roberto-manfreda/",
