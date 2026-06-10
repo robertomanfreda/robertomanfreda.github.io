@@ -32,12 +32,6 @@ jobs:
       - name: Validate catalog
         run: python scripts/update-llm-data.py --check --no-hub
 
-      - name: Commit changed data
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Update LLM checker data"
-          file_pattern: public/data/llm-models.json
-
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -52,6 +46,15 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Materialize branch Pages root
+        run: npm run materialize-pages
+
+      - name: Commit changed data and Pages root
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update LLM checker data"
+          file_pattern: "public/data/llm-models.json .nojekyll assets data respawn llm-model-checker favicon.ico index.html llm-model-checker.html respawn.html robots.txt site.webmanifest sitemap.xml"
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

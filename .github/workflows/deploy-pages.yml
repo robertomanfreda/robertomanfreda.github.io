@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -36,6 +36,15 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Materialize branch Pages root
+        run: npm run materialize-pages
+
+      - name: Commit branch Pages root
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Build GitHub Pages site"
+          file_pattern: ".nojekyll assets data respawn llm-model-checker favicon.ico index.html llm-model-checker.html respawn.html robots.txt site.webmanifest sitemap.xml"
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

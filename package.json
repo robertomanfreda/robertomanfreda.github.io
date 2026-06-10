@@ -7,9 +7,10 @@
     "node": ">=20.19.0"
   },
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
+    "dev": "node scripts/prepare-vite-index.mjs && vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "build": "tsc --noEmit && vite build && node scripts/postbuild.mjs",
+    "build": "node scripts/prepare-vite-index.mjs && tsc --noEmit && vite build && node scripts/postbuild.mjs",
+    "materialize-pages": "node scripts/materialize-pages-root.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
