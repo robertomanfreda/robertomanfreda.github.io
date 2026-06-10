@@ -129,7 +129,7 @@ export function RespawnPage() {
         <div className="hero-copy">
           <p className="eyebrow">Spotlight project</p>
           <div className="project-title-lockup">
-            <img src="/assets/respawn-mark.svg" alt="" aria-hidden="true" />
+            <img src="/assets/respawn.png" alt="" aria-hidden="true" />
             <h1 id="respawn-title">Respawn</h1>
           </div>
           <p className="hero-text">

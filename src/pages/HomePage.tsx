@@ -193,7 +193,7 @@ export function HomePage() {
         <div className="project-grid">
           <article className="card project-card featured-project">
             <a className="project-media" href="/respawn/" aria-label="Open the Respawn project page">
-              <img src="/assets/respawn-mark.svg" alt="" aria-hidden="true" />
+              <img src="/assets/respawn.png" alt="" aria-hidden="true" />
             </a>
             <div>
               <div className="card-kicker">
