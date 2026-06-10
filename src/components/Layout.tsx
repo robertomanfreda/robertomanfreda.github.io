@@ -13,7 +13,7 @@ export function Layout({ children, route }: LayoutProps) {
     <>
       <header className="site-header">
         <a className="brand" href="/" aria-label="Roberto Manfreda home">
-          <img className="brand-mark" src="/assets/favicon.svg" alt="" aria-hidden="true" />
+          <img className="brand-mark" src="/assets/robertomanfreda-mark.png" alt="" aria-hidden="true" />
           <span>Roberto Manfreda</span>
         </a>
         <nav className="site-nav" aria-label="Main navigation">

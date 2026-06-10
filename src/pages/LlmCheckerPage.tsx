@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowDown, ArrowUp, ArrowUpDown, BookOpenCheck, Copy, Cpu, FolderGit2, Gauge, Link } from "lucide-react";
-import { ButtonLink, SectionHeading, TagList, TerminalPanel } from "../components/ui";
+import { ButtonLink, SectionHeading, TagList } from "../components/ui";
 import {
   DEFAULT_INPUTS,
   clamp,
@@ -262,7 +262,12 @@ export function LlmCheckerPage() {
       <section className="hero project-hero" aria-labelledby="checker-hero-title">
         <div className="hero-copy">
           <p className="eyebrow">Local AI tool</p>
-          <h1 id="checker-hero-title">LLM Model Checker</h1>
+          <div className="project-title-lockup">
+            <img src="/assets/llm-checker.png" alt="" aria-hidden="true" />
+            <h1 id="checker-hero-title" className="single-line-title">
+              LLM Model Checker
+            </h1>
+          </div>
           <p className="hero-text">
             Estimate which local models fit your hardware before downloading giant weights. Built for Q4 GGUF/Ollama-style
             inference, discrete GPUs, and unified memory systems.
@@ -276,18 +281,6 @@ export function LlmCheckerPage() {
             </ButtonLink>
           </div>
         </div>
-        <aside className="hero-panel" aria-label="Checker summary">
-          <TerminalPanel
-            title="llm checker"
-            lines={[
-              ["mode", "GPU or unified memory"],
-              ["quant", "Q4 / INT4 estimate"],
-              ["fit", "Excellent, Good, Tight"],
-              ["speed", "active-footprint tok/s"],
-              ["data", "static JSON catalog"]
-            ]}
-          />
-        </aside>
       </section>
 
       <section id="checker" className="section checker-section" aria-labelledby="checker-title">

@@ -15,7 +15,7 @@ import {
   Terminal,
   Wrench
 } from "lucide-react";
-import { ButtonLink, CodeBlock, IconCard, SectionHeading, TagList, TerminalPanel } from "../components/ui";
+import { ButtonLink, CodeBlock, IconCard, SectionHeading, TagList } from "../components/ui";
 import { JsonLd, SITE_URL } from "../lib/seo";
 
 const highlights = [
@@ -145,19 +145,6 @@ export function RespawnPage() {
             </ButtonLink>
           </div>
         </div>
-        <aside className="hero-panel" aria-label="Respawn summary">
-          <TerminalPanel
-            title="respawn gateway"
-            lines={[
-              ["api", "/v1/responses"],
-              ["state", "previous_response_id"],
-              ["backend", "Ollama today"],
-              ["tools", "functions + local web/image"],
-              ["ops", "metrics + readiness + gates"]
-            ]}
-          />
-          <TagList items={["FastAPI", "Ollama", "Postgres", "SQLite", "ComfyUI", "Grafana"]} />
-        </aside>
       </section>
 
       <section className="section" aria-labelledby="what-title">
