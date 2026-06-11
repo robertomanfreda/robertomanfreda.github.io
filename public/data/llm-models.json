@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-06-11T15:22:24+00:00",
+  "updatedAt": "2026-06-11T15:28:37+00:00",
   "defaultQuantization": "Q4",
   "discovery": {
     "strategy": "Automatically discover canonical Ollama library tags from a curated family allowlist, then enrich with Hugging Face metadata when a trusted mapping is available.",
