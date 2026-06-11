@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-06-11T15:28:37+00:00",
+  "updatedAt": "2026-06-11T15:37:10+00:00",
   "defaultQuantization": "Q4",
   "discovery": {
     "strategy": "Automatically discover canonical Ollama library tags from a curated family allowlist, then enrich with Hugging Face metadata when a trusted mapping is available.",
@@ -1681,7 +1681,7 @@
       "hfUrl": "https://huggingface.co/Qwen/Qwen3.5-4B",
       "ollamaCommand": "ollama run qwen3.5:4b",
       "downloads": 8955908,
-      "likes": 629,
+      "likes": 630,
       "benchmarkSource": null,
       "benchmarkUrl": null,
       "metadataSource": "huggingface-hub",
