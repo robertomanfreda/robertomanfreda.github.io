@@ -9,7 +9,7 @@ on:
       - "scripts/update-llm-data.py"
       - "public/data/model-overrides.json"
   schedule:
-    - cron: "17 3 * * *"
+    - cron: "17 3 * * 1"
   workflow_dispatch:
 
 permissions:
