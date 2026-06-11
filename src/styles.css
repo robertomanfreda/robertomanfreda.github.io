@@ -641,6 +641,10 @@ pre {
   box-shadow: none;
 }
 
+.checker-results-panel {
+  overflow: hidden;
+}
+
 .toolbar-header {
   display: grid;
   grid-template-columns: minmax(240px, 1fr) minmax(0, 1.5fr);
@@ -926,9 +930,12 @@ pre {
 }
 
 .model-table-wrap {
-  overflow-x: auto;
+  max-height: clamp(360px, 62vh, 720px);
+  overflow: auto;
   border: 1px solid var(--line-soft);
   border-radius: 8px;
+  scrollbar-color: var(--line) #0f1216;
+  scrollbar-gutter: stable;
 }
 
 .model-table {
