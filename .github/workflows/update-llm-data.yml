@@ -1,13 +1,6 @@
 name: Update LLM checker data
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - ".github/workflows/update-llm-data.yml"
-      - "scripts/update-llm-data.py"
-      - "public/data/model-overrides.json"
   schedule:
     - cron: "17 3 * * 1"
   workflow_dispatch:
