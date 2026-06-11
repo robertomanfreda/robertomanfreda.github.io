@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -31,7 +31,7 @@ jobs:
         run: python scripts/update-llm-data.py --check --no-hub
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "24"
           cache: npm
@@ -49,7 +49,7 @@ jobs:
         run: npm run materialize-pages
 
       - name: Commit changed data and Pages root
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Update LLM checker data"
           file_pattern: "public/data/llm-models.json .nojekyll assets data respawn llm-model-checker favicon.ico index.html llm-model-checker.html respawn.html robots.txt site.webmanifest sitemap.xml"
