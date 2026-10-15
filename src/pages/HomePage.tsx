@@ -1,17 +1,20 @@
 import {
   Activity,
+  ArrowDown,
+  ArrowRight,
   Boxes,
   BrainCircuit,
   Code2,
   Database,
-  FolderGit2,
-  Gauge,
   Network,
   ServerCog,
   ShieldCheck,
   Workflow
 } from "lucide-react";
-import { ButtonLink, IconCard, SectionHeading, TagList, TextLink } from "../components/ui";
+import { ButtonLink, IconCard, SectionHeading, TagList } from "../components/ui";
+import { useScrollExperience } from "../components/useScrollExperience";
+import { OrbitScene } from "../components/OrbitScene";
+import "../home.css";
 import { JsonLd, SITE_URL } from "../lib/seo";
 
 const profileCards = [
@@ -69,28 +72,54 @@ const techCards = [
 ];
 
 export function HomePage() {
+  const { root, scene } = useScrollExperience();
   return (
-    <main id="top">
-      <section className="hero home-hero" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <p className="eyebrow">DevOps Engineer at Aruba - Software Architect - AI Builder</p>
-          <h1 id="hero-title">Roberto Manfreda</h1>
-          <p className="hero-text">
-            I build solid, readable, measurable systems: from application code to platforms, with constant attention to
-            performance, operability, and architecture quality.
-          </p>
-          <div className="button-row" role="group" aria-label="Primary actions">
-            <ButtonLink href="/respawn/" icon={FolderGit2}>
-              Respawn
-            </ButtonLink>
-            <ButtonLink href="/llm-model-checker/" variant="secondary" icon={Gauge}>
-              LLM Checker
-            </ButtonLink>
-            <ButtonLink href="https://github.com/robertomanfreda" variant="quiet" icon={Code2} external>
-              GitHub
-            </ButtonLink>
-          </div>
+    <main id="top" className="signal-home" ref={root}>
+      <div className="signal-page-progress" aria-hidden="true" />
+      <div className="signal-intro">
+      <section className="signal-hero" aria-labelledby="hero-title">
+        <div className="signal-identity">
+        <p className="signal-overline">Engineering / Systems / Intelligence</p>
+        <h1 id="hero-title">Roberto Manfreda</h1>
+        <p className="signal-role"><span className="signal-role-item">DevOps Engineer</span> / <span className="signal-role-item">Software Architect</span> / <span className="signal-role-item">AI Builder</span></p>
         </div>
+        <div className="signal-index" aria-hidden="true">
+          <span data-chapter="0">01 / Architecture</span>
+          <span data-chapter="1">02 / Platforms</span>
+          <span data-chapter="2">03 / Exploration</span>
+        </div>
+        <p className="signal-manifesto" aria-hidden="true">Build<br />Deploy<br />Scale<br />Learn<br />Repeat</p>
+        <OrbitScene scrollScene={scene} />
+        <div className="signal-invitation">
+        <p className="signal-tagline">From code to cloud. Built to perform.</p>
+        <a className="signal-cta" href="#projects">Explore my work <ArrowRight size={19} strokeWidth={1} aria-hidden="true" /></a>
+        <a className="signal-down" href="#projects" aria-label="Scroll to selected projects"><ArrowDown size={25} strokeWidth={1} /></a>
+        </div>
+        <div className="signal-chapters" aria-hidden="true">
+          <div className="signal-chapter"><span>01 / Architecture</span><h2>Code that<br />lasts.</h2><p>Clear decisions. Solid foundations.<br />Built for what comes next.</p></div>
+          <div className="signal-chapter"><span>02 / Platforms</span><h2>Systems<br />that scale.</h2><p>From the first deployment<br />to the demands of production.</p></div>
+          <div className="signal-chapter"><span>03 / Exploration</span><h2>AI you<br />can run.</h2><p>Local models. Practical tools.<br />Ideas made real.</p></div>
+        </div>
+        <a className="signal-scroll" href="#projects" aria-label="Scroll to selected projects"><span />Scroll</a>
+      </section>
+      </div>
+
+      <section id="projects" className="signal-projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">Selected projects</h2>
+        <a className="signal-project" href="/respawn/">
+          <span className="project-number">01</span>
+          <span className="project-name">Respawn</span>
+          <span className="project-description">Your local AI gateway.</span>
+          <span className="project-category">AI / DevOps / Tools</span>
+          <ArrowRight size={28} strokeWidth={1} aria-hidden="true" />
+        </a>
+        <a className="signal-project" href="/llm-model-checker/">
+          <span className="project-number">02</span>
+          <span className="project-name">LLM Checker</span>
+          <span className="project-description">Local AI, measured.</span>
+          <span className="project-category">AI / Evaluation / Open source</span>
+          <ArrowRight size={28} strokeWidth={1} aria-hidden="true" />
+        </a>
       </section>
 
       <section id="profile" className="section" aria-labelledby="profile-title">
@@ -145,51 +174,6 @@ export function HomePage() {
             <BrainCircuit aria-hidden="true" /> Local AI and agents
           </li>
         </ul>
-      </section>
-
-      <section id="projects" className="section" aria-labelledby="projects-title">
-        <SectionHeading eyebrow="Projects and tools" title="Respawn and local AI utilities" id="projects-title">
-          Local-first AI work: a Responses API compatible gateway and a hardware checker for choosing self-hosted models
-          before downloading them.
-        </SectionHeading>
-
-        <div className="project-grid">
-          <article className="card project-card">
-            <div className="project-card-head">
-              <a className="project-icon-link" href="/respawn/" aria-label="Open the Respawn project page">
-                <img src="/assets/respawn.png" alt="" aria-hidden="true" />
-              </a>
-              <div className="card-kicker">
-                <span>Respawn</span>
-                <span>2026</span>
-              </div>
-            </div>
-            <p>
-              Local gateway compatible with the OpenAI Responses API for self-hosted LLMs: conversational state, SSE
-              streaming, tool calls, structured outputs, Prometheus metrics, and a Docker Compose stack.
-            </p>
-            <TagList items={["OpenAI API", "FastAPI", "Postgres", "Ollama"]} />
-            <TextLink href="/respawn/">Read project page</TextLink>
-          </article>
-
-          <article className="card project-card">
-            <div className="project-card-head">
-              <a className="project-icon-link" href="/llm-model-checker/" aria-label="Open the LLM Model Checker">
-                <img src="/assets/llm-checker.png" alt="" aria-hidden="true" />
-              </a>
-              <div className="card-kicker">
-                <span>LLM Model Checker</span>
-                <span>2026</span>
-              </div>
-            </div>
-            <p>
-              Estimate which Ollama and GGUF-style local models fit a GPU, unified memory system, or CPU-only setup with Q4
-              footprint and speed estimates.
-            </p>
-            <TagList items={["Ollama", "GGUF", "VRAM", "Hugging Face"]} />
-            <TextLink href="/llm-model-checker/">Open checker</TextLink>
-          </article>
-        </div>
       </section>
 
       <section id="stack" className="section" aria-labelledby="stack-title">

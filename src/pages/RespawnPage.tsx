@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { ButtonLink, CodeBlock, IconCard, SectionHeading, TagList } from "../components/ui";
 import { JsonLd, SITE_URL } from "../lib/seo";
+import "../project.css";
 
 const highlights = [
   {
@@ -124,10 +125,10 @@ const endpointGroups = [
 
 export function RespawnPage() {
   return (
-    <main>
+    <main id="top" className="project-page respawn-page">
       <section className="hero project-hero" aria-labelledby="respawn-title">
         <div className="hero-copy">
-          <p className="eyebrow">Spotlight project</p>
+          <p className="eyebrow">01 / Self-hosted AI gateway</p>
           <div className="project-title-lockup">
             <img src="/assets/respawn.png" alt="" aria-hidden="true" />
             <h1 id="respawn-title">Respawn</h1>
@@ -145,6 +146,13 @@ export function RespawnPage() {
             </ButtonLink>
           </div>
         </div>
+        <nav className="project-contents" aria-label="On this page">
+          <p>Inside Respawn</p>
+          <a href="#quick-start"><span>01</span>Quick start</a>
+          <a href="#api"><span>02</span>API surface</a>
+          <a href="#operations"><span>03</span>Operations</a>
+          <a href="#boundaries"><span>04</span>Boundaries</a>
+        </nav>
       </section>
 
       <section className="section" aria-labelledby="what-title">
@@ -303,7 +311,7 @@ make down`}</CodeBlock>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="api-title">
+      <section id="api" className="section" aria-labelledby="api-title">
         <SectionHeading eyebrow="API surface" title="The practical endpoints exposed by Respawn" id="api-title" />
         <div className="three-grid">
           {endpointGroups.map((group) => (
@@ -319,7 +327,7 @@ make down`}</CodeBlock>
         </div>
       </section>
 
-      <section className="section section-muted" aria-labelledby="ops-title">
+      <section id="operations" className="section section-muted" aria-labelledby="ops-title">
         <SectionHeading eyebrow="Operations" title="Release checks and production signals for local inference" id="ops-title" />
         <div className="code-layout">
           <CodeBlock title="Benchmark gates">{`cd infra/docker
@@ -348,7 +356,7 @@ RESPAWN_BENCHMARK_EXCLUDE_TAGS=reasoning make benchmark`}</CodeBlock>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="limits-title">
+      <section id="boundaries" className="section" aria-labelledby="limits-title">
         <SectionHeading eyebrow="Boundaries" title="Intentionally local, intentionally narrow" id="limits-title" />
         <ul className="limitation-list">
           <li>Respawn is an API gateway, not an inference runtime.</li>

@@ -52,4 +52,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Update LLM checker data"
-          file_pattern: "public/data/llm-models.json .nojekyll assets data respawn llm-model-checker favicon.ico index.html llm-model-checker.html respawn.html robots.txt site.webmanifest sitemap.xml"
+          file_pattern: "public/data/llm-models.json .nojekyll assets fonts data respawn llm-model-checker favicon.ico index.html llm-model-checker.html respawn.html robots.txt site.webmanifest sitemap.xml"

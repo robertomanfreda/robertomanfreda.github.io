@@ -6,6 +6,7 @@ const dist = "dist";
 const generatedPaths = [
   ".nojekyll",
   "assets",
+  "fonts",
   "data",
   "respawn",
   "llm-model-checker",

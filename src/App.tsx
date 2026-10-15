@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Layout } from "./components/Layout";
 import { useRouteSeo } from "./lib/seo";
 import { HomePage } from "./pages/HomePage";
-import { LlmCheckerPage } from "./pages/LlmCheckerPage";
-import { RespawnPage } from "./pages/RespawnPage";
+const LlmCheckerPage = lazy(() => import("./pages/LlmCheckerPage").then(module => ({ default: module.LlmCheckerPage })));
+const RespawnPage = lazy(() => import("./pages/RespawnPage").then(module => ({ default: module.RespawnPage })));
 
 export type RouteId = "home" | "respawn" | "llm-checker";
 
@@ -28,9 +28,11 @@ export default function App() {
 
   return (
     <Layout route={route}>
+      <Suspense fallback={<main id="top" className="section" role="status">Loading page…</main>}>
       {route === "home" && <HomePage />}
       {route === "respawn" && <RespawnPage />}
       {route === "llm-checker" && <LlmCheckerPage />}
+      </Suspense>
     </Layout>
   );
 }

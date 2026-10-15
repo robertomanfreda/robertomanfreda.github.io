@@ -1,4 +1,4 @@
-import { Code2, ExternalLink } from "lucide-react";
+import { ArrowUpLeft, Code2 } from "lucide-react";
 import type { PropsWithChildren } from "react";
 import type { RouteId } from "../App";
 
@@ -11,40 +11,25 @@ const isActive = (route: RouteId, target: RouteId) => (route === target ? "page"
 export function Layout({ children, route }: LayoutProps) {
   return (
     <>
-      <header className="site-header">
-        <a className="brand" href="/" aria-label="Roberto Manfreda home">
-          <img className="brand-mark" src="/assets/robertomanfreda-mark.png" alt="" aria-hidden="true" />
-          <span>Roberto Manfreda</span>
+      <a className="skip-link" href="#top">Skip to content</a>
+      <header className="signal-header">
+        <a className="signal-brand" href="/" aria-label="Roberto Manfreda home">
+          <span className="signal-monogram">RM</span><span className="signal-slash" aria-hidden="true">/</span>
+          <span className="signal-brand-name">Roberto Manfreda</span>
         </a>
-        <nav className="site-nav" aria-label="Main navigation">
-          <a className="nav-link" href="/#profile">
-            Profile
-          </a>
-          <a className="nav-link" href="/#experience">
-            Experience
-          </a>
-          <a className="nav-link" href="/#projects">
-            Projects
-          </a>
-          <a className="nav-link" href="/#stack">
-            Stack
-          </a>
-          <a className="nav-link" href="/respawn/" aria-current={isActive(route, "respawn")}>
-            Respawn
-          </a>
-          <a className="nav-link nav-tool" href="/llm-model-checker/" aria-current={isActive(route, "llm-checker")}>
-            LLM Checker
-          </a>
+        <nav aria-label="Main navigation">
+          <a href={route === "home" ? "#profile" : "/#profile"}>Profile</a>
+          <a href={route === "home" ? "#projects" : "/#projects"}>Projects</a>
+          <a href="https://github.com/robertomanfreda" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
-        <div className="header-actions" aria-label="Social links">
-          <a className="icon-link" href="https://github.com/robertomanfreda" target="_blank" rel="noreferrer" aria-label="GitHub profile">
-            <Code2 size={17} aria-hidden="true" />
-          </a>
-          <a className="icon-link" href="https://www.linkedin.com/in/roberto-manfreda/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
-            <ExternalLink size={17} aria-hidden="true" />
-          </a>
-        </div>
       </header>
+      {route !== "home" && <nav className="project-switcher" aria-label="Project navigation">
+        <a className="project-back" href="/#projects"><ArrowUpLeft size={16} aria-hidden="true" />All projects</a>
+        <div>
+          <a href="/respawn/" aria-current={isActive(route, "respawn")}><span aria-hidden="true">01 / </span>Respawn</a>
+          <a href="/llm-model-checker/" aria-current={isActive(route, "llm-checker")}><span aria-hidden="true">02 / </span>LLM Checker</a>
+        </div>
+      </nav>}
 
       {children}
 

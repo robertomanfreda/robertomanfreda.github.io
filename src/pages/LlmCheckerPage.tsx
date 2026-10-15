@@ -14,6 +14,7 @@ import {
   writeUrlInputs
 } from "../lib/checker";
 import { JsonLd, SITE_URL } from "../lib/seo";
+import "../project.css";
 import type { CheckerInputs, CheckerResult, HardwarePreset, HardwarePresetsPayload, LlmCatalogPayload } from "../types/checker";
 
 const customPreset: HardwarePreset = {
@@ -258,13 +259,13 @@ export function LlmCheckerPage() {
   };
 
   return (
-    <main>
+    <main id="top" className="project-page checker-page">
       <section className="hero project-hero" aria-labelledby="checker-hero-title">
         <div className="hero-copy">
-          <p className="eyebrow">Local AI tool</p>
+          <p className="eyebrow">02 / Local AI tool</p>
           <div className="project-title-lockup">
             <img src="/assets/llm-checker.png" alt="" aria-hidden="true" />
-            <h1 id="checker-hero-title" className="single-line-title">
+            <h1 id="checker-hero-title">
               LLM Model Checker
             </h1>
           </div>
@@ -281,6 +282,12 @@ export function LlmCheckerPage() {
             </ButtonLink>
           </div>
         </div>
+        <nav className="project-contents" aria-label="On this page">
+          <p>Inside the checker</p>
+          <a href="#checker"><span>01</span>Check hardware</a>
+          <a href="#results-title"><span>02</span>Model catalog</a>
+          <a href="#methodology"><span>03</span>Methodology</a>
+        </nav>
       </section>
 
       <section id="checker" className="section checker-section" aria-labelledby="checker-title">
