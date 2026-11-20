@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Roberto Manfreda — write-ups</title>
+  <subtitle>Bug bounty findings, published after coordinated disclosure.</subtitle>
+  <link href="https://robertomanfreda.github.io/feed.xml" rel="self"/>
+  <link href="https://robertomanfreda.github.io/writeups/"/>
+  <id>https://robertomanfreda.github.io/writeups/</id>
+  <updated>2026-01-01T00:00:00Z</updated>
+  <author><name>Roberto Manfreda</name><uri>https://robertomanfreda.github.io</uri></author>
+
+</feed>

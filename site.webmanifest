@@ -1,16 +1,12 @@
 {
   "name": "Roberto Manfreda",
-  "short_name": "RM",
+  "short_name": "rm",
   "start_url": "/",
   "icons": [
-    {
-      "src": "assets/robertomanfreda-mark.png?v=9",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "any"
-    }
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ],
-  "theme_color": "#0d0f12",
-  "background_color": "#0d0f12",
+  "theme_color": "#0a0d0b",
+  "background_color": "#0a0d0b",
   "display": "standalone"
 }

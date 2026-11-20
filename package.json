@@ -7,22 +7,18 @@
     "node": ">=20.19.0"
   },
   "scripts": {
-    "dev": "node scripts/prepare-vite-index.mjs && vite --host 127.0.0.1",
+    "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "build": "node scripts/prepare-vite-index.mjs && tsc --noEmit && vite build && node scripts/postbuild.mjs",
+    "build": "tsc --noEmit && node scripts/build.mjs",
     "materialize-pages": "node scripts/materialize-pages-root.mjs",
+    "release": "npm run build && npm run materialize-pages",
     "preview": "vite preview --host 127.0.0.1"
   },
-  "dependencies": {
-    "lucide-react": "^1.17.0",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7"
-  },
   "devDependencies": {
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.2",
+    "@types/node": "^22.20.5",
+    "marked": "^18.2.1",
     "typescript": "^6.0.3",
-    "vite": "^8.0.16"
+    "vite": "^8.0.16",
+    "yaml": "^2.9.1"
   }
 }

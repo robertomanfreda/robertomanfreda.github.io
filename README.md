@@ -1,29 +1,67 @@
 # robertomanfreda.github.io
 
-Personal GitHub Pages site for Roberto Manfreda.
+Personal site of Roberto Manfreda. It reads as the scrollback of a terminal session inside tmux: the status bar is the navigation, the areas of work are four tiled panes, the career is a `git log`, and a guest shell waits at the bottom of the home page.
 
-The site is a static React app built with Vite, TypeScript, and plain CSS. The build produces `dist/`; `npm run materialize-pages` copies that output to the repository root served by GitHub Pages. Run both commands before committing a site release.
+Pages are static HTML rendered at build time. The site ships about 9 KB of JavaScript (gzip), no framework and no runtime dependencies; it works without JavaScript, apart from the shell.
 
-## Development
+## Commands
 
 ```bash
 npm install
-npm run dev
-npm run typecheck
-npm run build
-npm run preview
+npm run dev        # http://127.0.0.1:5173, renders pages on request, shows draft write-ups
+npm run build      # type-check, bundle assets, render every page into dist/
+npm run preview    # http://127.0.0.1:4173, serves dist/ as GitHub Pages would
+npm run release    # build, then copy dist/ over the repository root
 ```
 
-Public routes are `/`, `/respawn/`, and `/llm-model-checker/`. Legacy `respawn.html` and `llm-model-checker.html` redirect to the clean routes.
+GitHub Pages serves this repository's root, so the built site is committed. Run `npm run release` and commit the result to publish. The release records what it copied in `.pages-manifest.json` and removes those names first on the next run, so a page that is no longer built does not linger at the root.
 
-The LLM Model Checker reads static JSON from `public/data/`. `scripts/update-llm-data.py` refreshes the model catalog from public Hugging Face metadata and the curated Ollama/GGUF mapping.
+`.github/workflows/rebuild-site.yml` runs the same build once a month and commits the result if it changed. Two outputs depend on the date: the `Expires` field of `security.txt` and the years of experience on the home page.
 
-## Homepage motion
+## Editing content
 
-The orbital hero uses a small Canvas 2D perspective renderer for an animated icosahedron and orbital paths, without a 3D runtime dependency. The opening stays pinned for a three-chapter scroll sequence: the name fades out, architecture/platform/AI copy enters, and the camera zooms and rotates. Project rows, section headings, cards, and experience entries reveal progressively and reverse when scrolling back. Native scrolling and anchor shortcuts remain available. A single requestAnimationFrame callback handles scroll-driven DOM transforms without React rerenders; clickable project hit areas remain stationary. Reduced motion also removes the pinned sequence and its extra scroll distance. The renderer is capped at 30 fps and 1.5 device pixel ratio, stops outside the viewport or in a hidden tab, and respects `prefers-reduced-motion`. A pause control is available next to the scene. If Canvas is unavailable, `public/assets/orbit-fallback.webp` supplies the static visual.
+| What | Where |
+| --- | --- |
+| Name, bio, areas of work, career, links, email, hostname | `src/content/profile.ts` |
+| Write-ups | `content/writeups/*.md` |
+| Colors and themes | the three `[data-theme]` blocks at the top of `src/styles/base.css` |
 
-Project pages load on demand so the homepage does not download their code or the model catalog. Existing project routes and data behavior are retained.
+`profile.ts` is the single source for the home page, the guest shell's filesystem, the structured data and `security.txt`. `site.email` is the address in the contact section; `site.host` is the hostname in every prompt (`roberto@lab`); `areas` are the four panes of the scope section; `career` is one title, organisation and date range per entry.
 
-The cyberpunk revision adds independently moving segmented rings, light trails, calibrated arcs, satellites and chapter indicators. The circuit/grid backdrop and Canvas fallback are optimized WebP assets (about 58 KB combined); the live orbital apparatus remains procedural so its perspective can follow scrolling. Chakra Petch is served locally in two WOFF2 weights (about 20 KB combined), with its SIL Open Font License in `public/fonts/ChakraPetch-OFL.txt`; source: [Google Fonts](https://github.com/google/fonts/tree/main/ofl/chakrapetch). There are no remote font requests or new runtime dependencies. The beveled CTA uses CSS `corner-shape` and falls back to square corners in browsers that do not support it.
+Projects are not presented on the site: the projects section points at the GitHub profile.
 
-Respawn and LLM Checker share the homepage navigation, display fonts, technical backdrop and cyan/magenta accents. Route-specific styling in `src/project.css` loads with the project pages; documentation, code blocks and checker controls use the same theme with readable working surfaces. Project navigation highlights the current route, and each project has section shortcuts. Reduced motion disables the project entrance animation; the checker's status labels retain distinct success, warning and no-fit colors.
+### Publishing a write-up
+
+Copy `content/writeups/_template.md` to `content/writeups/YYYY-MM-DD-some-slug.md`, fill in the front matter, and write Markdown below it. The date prefix is dropped from the URL: the page lands at `/writeups/some-slug/`.
+
+- `draft: true` keeps a write-up out of the build. Drafts are visible only under `npm run dev`.
+- Files whose name starts with `_` are ignored.
+- Published write-ups are numbered `0x01`, `0x02`, … by date and appear on the home page, in `/writeups/`, in `/feed.xml` (Atom) and in the sitemap.
+- Fenced blocks tagged `http` get request, status and header coloring. Blocks tagged `console` treat lines starting with `$ ` or `# ` as commands and the rest as output. Other languages are shown as plain text.
+- `severity` is one of `critical`, `high`, `medium`, `low`, `info`. `timeline` is a list of `date: event` pairs.
+
+## How it is built
+
+```
+src/content/    profile data and the ASCII banner
+src/site/       page templates, run in Node at build time (and on request in dev)
+src/client/     browser code: core.ts on every page, home.ts and shell.ts on the home page
+src/styles/     base.css (themes, frame, shared pieces), home.css, prose.css
+content/        Markdown write-ups
+public/         files copied as they are (fonts, images, robots.txt, favicon)
+scripts/        build.mjs, materialize-pages-root.mjs
+```
+
+`scripts/build.mjs` runs Vite once for the client bundles (with a manifest), then loads `src/site/generate.ts` through Vite's module runner and writes every page, the feed, the sitemap and `security.txt` into `dist/`. In development the same module answers requests through a small plugin in `vite.config.ts`.
+
+Built pages carry a Content Security Policy in a `<meta>` tag: `default-src 'none'`, with scripts, styles, fonts and images from the same origin only. The one inline script, which restores the theme before first paint, is allowed by hash; the hash is computed at build time.
+
+## Design notes
+
+- **Type.** Iosevka in four files of about 14 KB each (`public/fonts/`), subset to Basic Latin, Latin-1, punctuation, arrows, box drawing and block elements, with layout features removed so `->` and `==` stay as typed. License: `public/fonts/Iosevka-OFL.txt`. They were produced from the upstream fonts with `pyftsubset --layout-features='' --flavor=woff2`.
+- **Themes.** `phosphor` (default), `amber` and `paper`. The choice is stored in `localStorage` under `rm.theme`.
+- **Motion.** Commands are typed and their output follows, once, when a section scrolls into view. The name resolves out of noise and the mark shimmers and reacts to the pointer. With `prefers-reduced-motion` everything is simply there.
+- **Keys.** `0`–`5` jump to a window, `j`/`k` scroll, `g`/`G` top and bottom, `t` cycles the theme, `` ` `` focuses the shell, `?` lists them.
+- **The mark** in the hero is the icon, `public/favicon.svg`, sampled into a 52×26 grid of characters; the result is stored as `mark` in `profile.ts`. Redo it if the icon changes.
+- **Icon.** `public/favicon.svg` is the source: an angular R drawn with two strokes, a stem and one zigzag that makes a pointed bowl (the `>` of a prompt) and the leg. The stem sits on a 16-pixel grid so it stays sharp in a browser tab. `favicon.ico` (16, 32, 48), `apple-touch-icon.png` (180, square corners) and `assets/icon-192.png` / `icon-512.png` are renders of it; redo them if the SVG changes.
+- **Link preview.** `public/assets/og.png` (1200×630) is what LinkedIn, Slack, WhatsApp and the like show for a link to the site: the hero, laid out for that size. Take a new one if the name, tagline or hostname changes. These services cache previews, so after publishing a new image ask them to fetch it again (LinkedIn: Post Inspector).

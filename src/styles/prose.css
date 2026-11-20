@@ -1,0 +1,195 @@
+/* Write-ups (index and articles) and the 404 page. */
+
+.wu-kicker {
+  color: var(--accent);
+  font-weight: 600;
+}
+.wu-head {
+  padding-bottom: 1.6rem;
+  margin-bottom: 2.2rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+.writeup .page-title {
+  max-width: 28ch;
+}
+
+.prose {
+  max-width: 84ch;
+}
+.prose > * + * {
+  margin-top: 1.05em;
+}
+.prose h2,
+.wu-timeline h2 {
+  margin-top: 2.4em;
+  font-size: 1.4em;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.prose h3 {
+  margin-top: 2em;
+  font-size: 1.14em;
+}
+.prose h4 {
+  margin-top: 1.6em;
+}
+.anchor {
+  color: var(--accent);
+  font-weight: 400;
+}
+.anchor:hover {
+  text-decoration: none;
+  color: var(--fg-strong);
+}
+.prose a:not(.anchor) {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.prose a:not(.anchor):hover {
+  text-decoration-color: currentColor;
+}
+.prose :not(pre) > code {
+  padding: 0 0.5ch;
+  border: 1px solid var(--line);
+  background: var(--bg-raise);
+  color: var(--fg-strong);
+  overflow-wrap: anywhere;
+}
+.prose blockquote {
+  margin-inline: 0;
+  padding-left: 2ch;
+  border-left: 2px solid var(--accent);
+  color: var(--fg-strong);
+}
+.prose ul {
+  padding-left: 2ch;
+  list-style: "- ";
+}
+.prose ol {
+  padding-left: 4ch;
+}
+.prose li + li {
+  margin-top: 0.3em;
+}
+.prose li::marker {
+  color: var(--dim);
+}
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--line-strong);
+}
+.prose hr {
+  margin-block: 2.2em;
+  border: 0;
+  border-top: 1px dashed var(--line-strong);
+}
+.prose figure.code {
+  margin-block: 1.4em;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+.prose table {
+  border-collapse: collapse;
+}
+.prose th,
+.prose td {
+  padding: 0.25em 3ch 0.25em 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.prose th {
+  color: var(--dim);
+  font-weight: 400;
+}
+.al-right {
+  text-align: right;
+}
+.al-center {
+  text-align: center;
+}
+
+.tok-method {
+  color: var(--magenta);
+  font-weight: 600;
+}
+.tok-header {
+  color: var(--cyan);
+}
+.tok-dim {
+  color: var(--dim);
+}
+.tok-cmd {
+  color: var(--fg-strong);
+}
+.tok-out {
+  color: var(--fg);
+}
+.tok-status {
+  font-weight: 600;
+}
+.tok-status.s2 {
+  color: var(--green);
+}
+.tok-status.s3 {
+  color: var(--blue);
+}
+.tok-status.s4 {
+  color: var(--yellow);
+}
+.tok-status.s5 {
+  color: var(--red);
+}
+
+.wu-timeline ol {
+  margin-top: 1em;
+  padding: 0;
+  list-style: none;
+}
+.wu-timeline li {
+  display: grid;
+  grid-template-columns: 2ch 12ch minmax(0, 1fr);
+}
+.wu-timeline li::before {
+  content: "*";
+  color: var(--magenta);
+}
+.wu-timeline time {
+  color: var(--dim);
+}
+.wu-nav {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.page-writeups .lede {
+  margin-bottom: 1.5em;
+}
+.readme-empty p + p {
+  margin-top: 0.8em;
+  max-width: 74ch;
+}
+
+/* ---------- 404 ---------- */
+
+.notfound .page-title {
+  font-size: clamp(6rem, 34cqi, 17rem);
+  line-height: 0.82;
+  letter-spacing: -0.03em;
+  color: var(--fg-strong);
+}
+.ls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em 3ch;
+  padding: 0;
+  list-style: none;
+}
+.ls a {
+  color: var(--blue);
+  font-weight: 600;
+}
