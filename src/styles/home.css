@@ -105,9 +105,6 @@
   }
 }
 
-.id-line {
-  color: var(--fg);
-}
 .about p {
   max-width: 74ch;
 }
@@ -199,8 +196,12 @@
 .subject {
   color: var(--fg);
 }
-.at {
+.at,
+.via {
   color: var(--dim);
+}
+.via {
+  white-space: nowrap;
 }
 .refs {
   color: var(--yellow);
@@ -223,6 +224,13 @@
   }
   .subject {
     grid-column: 1 / -1;
+  }
+  /* On a narrow screen the placement gets its own line instead of breaking mid-phrase. */
+  .via {
+    display: block;
+  }
+  .via > span {
+    display: none;
   }
 }
 

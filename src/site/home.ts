@@ -4,7 +4,6 @@ import {
   areas,
   career,
   facts,
-  groups,
   mark,
   plan,
   site,
@@ -35,9 +34,6 @@ export const markHtml = (lines: string[] = mark) =>
     .map((line) => line.replace(/[#+]+|:+|\.+/g, (run) => `<span class="m${run[0] === "." ? 1 : run[0] === ":" ? 2 : 3}">${run}</span>`))
     .join("\n");
 
-const idLine = () =>
-  `uid=1000(${site.user}) gid=1000(${site.user}) groups=1000(${site.user}),${groups.map(([gid, name]) => `${gid}(${name})`).join(",")}`;
-
 /* ---------- sections ---------- */
 
 const hero = (context: Context) => html`<section id="whoami" class="win hero" data-win="0" aria-labelledby="name">
@@ -50,8 +46,6 @@ const hero = (context: Context) => html`<section id="whoami" class="win hero" da
     </div>
     <pre class="mark" aria-hidden="true" data-mark>${raw(markHtml())}</pre>
   </div>
-  ${cmdline("id")}
-  <p class="out id-line">${raw(idLine().replace(/,/g, ",<wbr>"))}</p>
   ${cmdline("cat about.txt")}
   <div class="out about">
     ${about.map((paragraph, index) => html`<p${index === 0 ? raw(' class="lede"') : ""}>${paragraph}</p>`)}
@@ -80,7 +74,7 @@ const commit = (role: Role, options: { side?: boolean; head?: boolean; root?: bo
   <p class="commit-line">
     <span class="hash">${shortHash(role)}</span>
     <span class="range">${range(role)}</span>
-    <span class="subject"><b>${role.title}</b> <span class="at">@</span> ${role.org}${options.head ? html` <span class="refs">(<span class="ref-head">HEAD -&gt;</span> <span class="ref-branch">main</span>)</span>` : ""}</span>
+    <span class="subject"><b>${role.title}</b> <span class="at">@</span> ${role.org}${options.head ? html` <span class="refs">(<span class="ref-head">HEAD -&gt;</span> <span class="ref-branch">main</span>)</span>` : ""}${role.via ? html` <span class="via"><span aria-hidden="true">· </span>consultant through ${role.via}</span>` : ""}</span>
   </p>
 </li>`;
 
@@ -206,11 +200,13 @@ const sidePane = () => html`<aside class="pane pane-side" aria-label="Session mo
 
 /* ---------- the guest shell's filesystem ---------- */
 
+const through = (role: Role) => (role.via ? ` · consultant through ${role.via}` : "");
+
 const careerOneline = () =>
   career
     .flatMap((role) => [
-      ...(role.side ?? []).map((side) => `| * ${shortHash(side)} ${pad(range(side), 17)}${side.title} @ ${side.org}\n|/`),
-      `* ${shortHash(role)} ${pad(range(role), 17)}${role.title} @ ${role.org}`
+      ...(role.side ?? []).map((side) => `| * ${shortHash(side)} ${pad(range(side), 17)}${side.title} @ ${side.org}${through(side)}\n|/`),
+      `* ${shortHash(role)} ${pad(range(role), 17)}${role.title} @ ${role.org}${through(role)}`
     ])
     .join("\n");
 

@@ -31,17 +31,6 @@ export const site = {
   }
 } as const;
 
-/** Output of `id`: the groups are the fields of work. */
-export const groups = [
-  [27, "sudo"],
-  [998, "docker"],
-  [1001, "devops"],
-  [1002, "k8s"],
-  [1003, "perf"],
-  [1004, "appsec"],
-  [1337, "bugbounty"]
-] as const;
-
 export const about = [
   "I build platforms for a living and spend my nights finding out how they break.",
   "By day I design and develop a performance-testing platform currently at Aruba Software. Before that I was tech lead on distributed systems and the Kubernetes clusters they run on.",
@@ -89,6 +78,8 @@ export type Role = {
   from: string;
   /** YYYY-MM, or omitted for the current role */
   to?: string;
+  /** Consultancy the role was held through, shown as "consultant through …". */
+  via?: string;
   /** Short engagements that happened during this role; drawn as side branches. */
   side?: Role[];
 };
@@ -104,18 +95,21 @@ export const career: Role[] = [
     org: "Sisal",
     from: "2022-12",
     to: "2026-03",
+    via: "Alten",
     side: [
       {
         title: "Enterprise Architecture",
         org: "Zucchetti",
         from: "2025-05",
-        to: "2025-05"
+        to: "2025-05",
+        via: "Alten"
       },
       {
         title: "Technical Collaboration",
         org: "TicketOne",
         from: "2025-01",
-        to: "2025-01"
+        to: "2025-01",
+        via: "Alten"
       }
     ]
   },
@@ -123,19 +117,22 @@ export const career: Role[] = [
     title: "DevOps Engineer",
     org: "Aruba S.p.A.",
     from: "2022-07",
-    to: "2022-11"
+    to: "2022-11",
+    via: "Alten"
   },
   {
     title: "Software Engineer",
     org: "Olivetti",
     from: "2022-03",
-    to: "2022-07"
+    to: "2022-07",
+    via: "Alten"
   },
   {
     title: "Senior Software Engineer",
     org: "Sisal",
     from: "2019-11",
     to: "2022-02",
+    via: "Alten",
     side: [
       {
         title: "Penetration Testing",
@@ -149,19 +146,22 @@ export const career: Role[] = [
     title: "Software Maintenance Engineer",
     org: "SNAI",
     from: "2019-08",
-    to: "2019-10"
+    to: "2019-10",
+    via: "Alten"
   },
   {
     title: "Software Engineer",
     org: "Microgame",
     from: "2019-01",
-    to: "2019-07"
+    to: "2019-07",
+    via: "Alten"
   },
   {
     title: "Software Engineer",
     org: "GVC Group",
     from: "2018-07",
-    to: "2018-12"
+    to: "2018-12",
+    via: "Alten"
   },
   {
     title: "Freelance Android Developer",
