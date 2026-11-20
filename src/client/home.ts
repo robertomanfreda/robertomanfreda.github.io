@@ -6,7 +6,6 @@ import { startShell } from "./shell";
 const $ = <T extends Element>(selector: string, scope: ParentNode = document) => scope.querySelector<T>(selector);
 const $$ = <T extends Element>(selector: string, scope: ParentNode = document) => Array.from(scope.querySelectorAll<T>(selector));
 
-const CAREER_START = new Date(2017, 1, 1);
 const NOISE = "!<>-_\\/[]{}=+*^?#$%&01";
 const pick = (set: string) => set[Math.floor(Math.random() * set.length)];
 const two = (value: number) => String(value).padStart(2, "0");
@@ -140,10 +139,16 @@ const startMark = (element: HTMLElement) => {
 
 /* ---------- uptime since the first developer job ---------- */
 
-const uptimeParts = (now: Date) => {
-  let years = now.getFullYear() - CAREER_START.getFullYear();
-  let months = now.getMonth() - CAREER_START.getMonth();
-  let days = now.getDate() - CAREER_START.getDate();
+/** The start date is written into the page by the build (site.careerStart), read as a local calendar date. */
+const careerStart = () => {
+  const [year, month, day] = ($<HTMLElement>("[data-since]")?.dataset.since ?? "").split("-").map(Number);
+  return year && month && day ? new Date(year, month - 1, day) : null;
+};
+
+const uptimeParts = (start: Date, now: Date) => {
+  let years = now.getFullYear() - start.getFullYear();
+  let months = now.getMonth() - start.getMonth();
+  let days = now.getDate() - start.getDate();
   if (days < 0) {
     months -= 1;
     days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
@@ -156,8 +161,10 @@ const uptimeParts = (now: Date) => {
 };
 
 const tickUptime = () => {
+  const start = careerStart();
+  if (!start) return;
   const now = new Date();
-  const { years, months, days } = uptimeParts(now);
+  const { years, months, days } = uptimeParts(start, now);
   const short = $<HTMLElement>("[data-uptime]");
   if (short) short.textContent = `${years} years, ${months} ${months === 1 ? "month" : "months"}`;
   const long = $<HTMLElement>("[data-uptime-long]");

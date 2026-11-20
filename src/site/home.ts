@@ -16,6 +16,9 @@ import { writeupList, type Writeup } from "./writeups";
 
 const home = `/home/${site.user}`;
 
+/** "Jan 2017", from site.careerStart. */
+const since = new Intl.DateTimeFormat("en", { month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(site.careerStart));
+
 export const yearsOfExperience = (now: Date) => {
   const start = new Date(site.careerStart);
   let years = now.getUTCFullYear() - start.getUTCFullYear();
@@ -54,7 +57,7 @@ const hero = (context: Context) => html`<section id="whoami" class="win hero" da
     ${about.map((paragraph, index) => html`<p${index === 0 ? raw(' class="lede"') : ""}>${paragraph}</p>`)}
     <dl class="facts">
       ${facts.map(([key, value]) => html`<div><dt>${key}</dt><dd>${value}</dd></div>`)}
-      <div><dt>uptime</dt><dd><span data-uptime>${yearsOfExperience(context.now)}+ years</span> <span class="dim">in software</span></dd></div>
+      <div><dt>uptime</dt><dd><span data-uptime data-since="${site.careerStart}">${yearsOfExperience(context.now)}+ years</span> <span class="dim">in software</span></dd></div>
     </dl>
   </div>
 </section>`;
@@ -149,7 +152,7 @@ const contact = () => html`<section id="contact" class="win" data-win="5" aria-l
       <div><dt>Directory:</dt><dd>${home}</dd></div>
       <div><dt>Shell:</dt><dd>/bin/bash</dd></div>
     </dl>
-    <p>On since Feb 2017 on pts/0 from ${site.location}</p>
+    <p>On since ${since} on pts/0 from ${site.location}</p>
     ${site.email ? "" : html`<p>No mail.</p>`}
     <p>Plan:</p>
     <div class="plan">
@@ -184,7 +187,7 @@ const sidePane = () => html`<aside class="pane pane-side" aria-label="Session mo
     <dl class="mini-facts">
       <div><dt>you</dt><dd>guest <span class="dim">(read-only)</span></dd></div>
       <div><dt>host</dt><dd>${site.host} <span class="dim" data-tz></span></dd></div>
-      <div><dt>up</dt><dd data-uptime-long>since Feb 2017</dd></div>
+      <div><dt>up</dt><dd data-uptime-long>since ${since}</dd></div>
       <div><dt>window</dt><dd data-current-window>0:whoami</dd></div>
       <div><dt>scroll</dt><dd><span class="meter" data-meter aria-hidden="true">[....................]</span> <span data-meter-pct>0%</span></dd></div>
     </dl>

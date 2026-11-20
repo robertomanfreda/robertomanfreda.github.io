@@ -1,5 +1,6 @@
 /**
- * Everything the site says about its owner lives here.
+ * Everything the site says about its owner lives here. Titles, companies
+ * and dates of the career follow the LinkedIn profile.
  * Edit this file, run `npm run build`, and every page, the shell's
  * virtual filesystem, the feed and the sitemap follow.
  */
@@ -11,11 +12,11 @@ export const site = {
   /** Hostname in every prompt: user@host. */
   host: "lab",
   timezone: "Europe/Rome",
-  /** First developer role. Drives "9+ years" and the uptime counter. */
-  careerStart: "2017-02-01",
+  /** First developer role (YYYY-MM-DD). Drives "9+ years", the uptime counter and "On since" in the contact section. */
+  careerStart: "2017-01-01",
   role: "DevOps Engineer",
   focus: "Platform & Performance Engineering",
-  employer: "Aruba Software",
+  employer: "Aruba Software S.r.l.",
   location: "Potenza, Italy",
   tagline: "Software engineer. DevOps engineer. Performance tester. Bug bounty hunter.",
   description:
@@ -95,13 +96,13 @@ export type Role = {
 export const career: Role[] = [
   {
     title: "DevOps Engineer",
-    org: "Aruba Software",
+    org: "Aruba Software S.r.l.",
     from: "2026-04"
   },
   {
-    title: "Tech Lead",
-    org: "Sisal Group",
-    from: "2025-02",
+    title: "Technical Lead",
+    org: "Sisal",
+    from: "2022-12",
     to: "2026-03",
     side: [
       {
@@ -109,15 +110,7 @@ export const career: Role[] = [
         org: "Zucchetti",
         from: "2025-05",
         to: "2025-05"
-      }
-    ]
-  },
-  {
-    title: "Tech Lead",
-    org: "Sisal Group",
-    from: "2022-12",
-    to: "2025-01",
-    side: [
+      },
       {
         title: "Technical Collaboration",
         org: "TicketOne",
@@ -139,8 +132,8 @@ export const career: Role[] = [
     to: "2022-07"
   },
   {
-    title: "Software Engineer",
-    org: "Sisal Group",
+    title: "Senior Software Engineer",
+    org: "Sisal",
     from: "2019-11",
     to: "2022-02",
     side: [
@@ -159,34 +152,34 @@ export const career: Role[] = [
     to: "2019-10"
   },
   {
-    title: "Software Developer",
+    title: "Software Engineer",
     org: "Microgame",
     from: "2019-01",
     to: "2019-07"
   },
   {
-    title: "Software Developer",
-    org: "GCV Group",
+    title: "Software Engineer",
+    org: "GVC Group",
     from: "2018-07",
+    to: "2018-12"
+  },
+  {
+    title: "Freelance Android Developer",
+    org: "Google Play",
+    from: "2017-01",
     to: "2018-12"
   },
   {
     title: "Software Developer",
     org: "JDK S.r.l.",
     from: "2018-03",
-    to: "2018-07"
-  },
-  {
-    title: "Android Developer",
-    org: "Freelance",
-    from: "2017-02",
-    to: "2018-03"
+    to: "2018-06"
   },
   {
     title: "Web Designer",
     org: "Venum 3.0",
     from: "2016-09",
-    to: "2017-01"
+    to: "2017-02"
   }
 ];
 
